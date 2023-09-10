@@ -1,0 +1,37 @@
+<header>
+  <nav class="navbar">
+    <div class="nav-left">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="/" class="nav-link
+          <% if (locals.title ===  "home") { %>
+          <%= " active-link" %>
+          <% } %>">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <ul class="nav-list">
+        <% if (locals.user) { %>
+        <li class="nav-item"><a href="/user/profile" class="nav-link
+          <% if (locals.title ===  "profile") { %>
+          <%= " active-link" %>
+          <% } %>">Profile</a>
+        </li>
+        <li class="nav-item"><a href="/user/logout" class="nav-link">Logout</a>
+        </li>
+        <% } else { %>
+        <li class="nav-item"><a href="/user/signup" class="nav-link
+          <% if (locals.title ===  "signup") { %>
+          <%= " active-link" %>
+          <% } %>">Sign Up</a>
+        </li>
+        <li class="nav-item"><a href="/user/login" class="nav-link
+          <% if (locals.title ===  "login") { %>
+            <%= " active-link" %>
+            <% } %>">Login</a>
+        </li>
+        <% }  %>
+      </ul>
+    </div>
+  </nav>
+</header>

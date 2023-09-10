@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('partials/head') %>
+</head>
+
+<body>
+  <main class="container">
+    <%- include("partials/header") %>
+    <section class="main">
+      <div class="ls-form">
+        <form action="/user/login" method="post">
+          <div class="form-elem">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" required>
+            <p class="email error"></p>
+          </div>
+          <div class="form-elem">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+            <p class="password error"></p>
+          </div>
+          <button class="btn">Login</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const emailError = document.querySelector(".email.error");
+    const passwordError = document.querySelector(".password.error");
+    const form = document.querySelector(".ls-form form");
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+      const email = form.email.value;
+      const password = form.password.value;
+      try {
+        const {
+          data
+        } = await axios({
+          method: "post",
+          url: "/user/login",
+          data: {
+            email,
+            password
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        });
+        location.assign("/user/profile");
+      } catch (err) {
+        const errors = err.response.data.errors;
+        emailError.textContent = errors.email;
+        passwordError.textContent = errors.password;
+      }
+    });
+  </script>
+</body>
+
+</html>
