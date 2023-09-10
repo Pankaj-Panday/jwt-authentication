@@ -105,3 +105,10 @@ Replace `"your-secret-key"` with a strong and unique secret key for JWT.
 ### Styling
 
 Styling for the project is defined in the `public/styles/main.css` file. You can modify this file to adjust the appearance of your application. CSS variables are used for easier customization.
+
+## Demo
+
+
+https://github.com/Pankaj-Panday/jwt-authentication/assets/55234406/3a220489-8123-430a-b566-38048fffd4a1
+
+
