@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
 import { User } from "../models/userModel.js";
 
-const secretKey = "thisissomerandomsecret";
-const expiry = 24 * 60 * 60 * 1000;
+const secretKey = process.env.JWT_SECRET;
+const expiry = 24 * 60 * 60 * 1000; // 1 day in milliseconds
 
 function handleErrors(err) {
 	console.log(err.message, err.code);

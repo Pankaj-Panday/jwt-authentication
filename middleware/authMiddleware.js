@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { User } from "../models/userModel.js";
-const secretKey = "thisissomerandomsecret";
+const secretKey = process.env.JWT_SECRET;
 
 const checkAuthentication = (req, res, next) => {
 	const token = req.cookies.token;

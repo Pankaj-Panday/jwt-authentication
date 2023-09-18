@@ -6,7 +6,8 @@
 	"type": "module",
 	"scripts": {
 		"build": "npm install",
-		"start": "nodemon app.js"
+		"dev": "nodemon app.js",
+		"start": "node app.js"
 	},
 	"keywords": [],
 	"author": "",
